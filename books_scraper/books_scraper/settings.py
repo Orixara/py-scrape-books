@@ -21,10 +21,6 @@ ADDONS = {}
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
-# Concurrency and throttling settings
-# CONCURRENT_REQUESTS = 16
-CONCURRENT_REQUESTS_PER_DOMAIN = 1
-DOWNLOAD_DELAY = 1
 
 # Disable cookies (enabled by default)
 # COOKIES_ENABLED = False
@@ -85,3 +81,23 @@ DOWNLOAD_DELAY = 1
 
 # Set settings whose default value is deprecated to a future-proof value
 FEED_EXPORT_ENCODING = "utf-8"
+
+FEEDS = {
+    "books.jl": {
+        "format": "jsonlines",
+        "encoding": "utf-8",
+        "overwrite": True,
+    }
+}
+
+USER_AGENT = "books_scraper (+https://github.com/yourname/py-scrape-books)"
+
+CONCURRENT_REQUESTS = 16
+CONCURRENT_REQUESTS_PER_DOMAIN = 8
+DOWNLOAD_DELAY = 0.25
+
+AUTOTHROTTLE_ENABLED = True
+AUTOTHROTTLE_START_DELAY = 0.25
+AUTOTHROTTLE_MAX_DELAY = 1
+AUTOTHROTTLE_TARGET_CONCURRENCY = 2.0
+AUTOTHROTTLE_DEBUG = False
