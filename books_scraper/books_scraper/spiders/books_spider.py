@@ -66,9 +66,7 @@ class BooksSpider(scrapy.Spider):
         return category.strip() if category else None
 
     def _extract_description(self, response):
-        description = response.css(
-            "article.product_page > p::text"
-        ).get()
+        description = response.css("article.product_page > p::text").get()
         return description.strip() if description else None
 
     def _extract_upc(self, response):
